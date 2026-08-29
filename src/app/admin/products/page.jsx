@@ -4,7 +4,7 @@
 import { useEffect, useState } from "react";
 
 import DeleteProductModal from "@/components/admin/products/DeleteProductModal";
-import ProductToolbar from "@/components/admin/Products/ProductToolbar";
+import ProductToolbar from "@/components/admin/products/ProductToolbar";
 import ProductsTable from "@/components/admin/products/ProductsTable";
 import ProductModal from "@/components/admin/products/ProductModal";
 
