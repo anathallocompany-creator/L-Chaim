@@ -1,87 +1,45 @@
 
 "use client";
 
-import Link from "next/link";
-
 export default function DoubleBanner() {
   return (
     <section
       className="
         w-full
-        max-w-7xl
-        mx-auto
-        px-3
-        sm:px-4
-        md:px-6
-        lg:px-8
+        px-4
         py-8
+        sm:px-6
         sm:py-10
         md:py-12
-        lg:py-20
+        lg:px-8
+        lg:py-16
       "
     >
       <div
         className="
-          grid
-          grid-cols-1
-          md:grid-cols-2
-          gap-4
-          sm:gap-5
-          md:gap-6
-          lg:gap-8
+          relative
+          mx-auto
+          w-full
+          max-w-[1600px]
+          overflow-hidden
+          rounded-2xl
+          sm:rounded-3xl
         "
       >
-        {/* Left Banner */}
-        <div
+        <img
+          src="/cake-design.png"
+          alt="L'Chaim Cakes and Sweets"
           className="
-            relative
+            block
+            h-auto
             w-full
-            h-[180px]
-            sm:h-[220px]
-            md:h-[260px]
-            lg:h-[320px]
-            rounded-2xl
-            sm:rounded-3xl
-            overflow-hidden
+            object-cover
+            transition-transform
+            duration-700
+            ease-out
+            hover:scale-105
           "
-        >
-          <img
-            src="/banner6.png"
-            alt="Birthday Cakes"
-            className="
-              w-full
-              h-full
-              object-cover
-              object-center
-            "
-          />
-        </div>
-
-        {/* Right Banner */}
-        <div
-          className="
-            relative
-            w-full
-            h-[180px]
-            sm:h-[220px]
-            md:h-[260px]
-            lg:h-[320px]
-            rounded-2xl
-            sm:rounded-3xl
-            overflow-hidden
-          "
-        >
-          <img
-            src="/banner3.jpg"
-            alt="Pastries"
-            className="
-              w-full
-              h-full
-              object-cover
-              object-center
-            "
-          />
-        </div>
+        />
       </div>
     </section>
   );

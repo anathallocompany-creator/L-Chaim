@@ -1,285 +1,348 @@
+
 "use client";
 
 import { useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const categories = [
-    {
-        name: "Birthday Cakes",
-        image: "/cat1.png",
-    },
-    {
-        name: "Wedding Cakes",
-        image: "/cat5.png",
-    },
-    {
-        name: "Cupcakes",
-        image: "/cat4.png",
-    },
-    {
-        name: "Pastries",
-        image: "/cat2.png",
-    },
-    {
-        name: "Food Tray",
-        image: "/cat3.png",
-    },
-    {
-        name: "Bread",
-        image: "/cat7.png",
-    },
-    {
-        name: "Drinks",
-        image: "/cat6.png",
-    },
+  {
+    name: "Birthday Cakes",
+    image: "/cat1.png",
+  },
+  {
+    name: "Wedding Cakes",
+    image: "/cat5.png",
+  },
+  {
+    name: "Cupcakes",
+    image: "/cat4.png",
+  },
+  {
+    name: "Pastries",
+    image: "/cat2.png",
+  },
+  {
+    name: "Food Tray",
+    image: "/cat3.png",
+  },
+  {
+    name: "Bread",
+    image: "/cat7.png",
+  },
+  {
+    name: "Drinks",
+    image: "/cat6.png",
+  },
 ];
 
 export default function CategoryShowcase({
-    activeCategory,
-    onSelectCategory,
+  activeCategory,
+  onSelectCategory,
 }) {
-    const sliderRef = useRef(null);
+  const sliderRef = useRef(null);
 
-    const scrollLeft = () => {
-        sliderRef.current?.scrollBy({
-            left: -250,
-            behavior: "smooth",
-        });
-    };
+  const scrollLeft = () => {
+    sliderRef.current?.scrollBy({
+      left: -400,
+      behavior: "smooth",
+    });
+  };
 
-    const scrollRight = () => {
-        sliderRef.current?.scrollBy({
-            left: 250,
-            behavior: "smooth",
-        });
-    };
+  const scrollRight = () => {
+    sliderRef.current?.scrollBy({
+      left: 400,
+      behavior: "smooth",
+    });
+  };
 
-    return (
-        <section className="py-2 mt-12 md:mt-0 sm:py-4 lg:py-8">
+  return (
+    <section className="w-full mt-14 py-6 sm:py-8 lg:py-12">
+      <div className="max-w-8xl  px-4 sm:px-6 lg:px-12">
 
-            <div className="max-w-7xl mx-auto">
+        {/* ================= HEADER ================= */}
 
-                {/* ================= MOBILE ================= */}
-                <div className="block lg:hidden">
+        <div className="flex items-center justify-between mb-5 sm:mb-7 lg:mb-10">
 
-                    {/* Heading */}
-                    <div className="flex items-center justify-between mb-3 px-1">
-                        <h2 className="text-lg font-bold text-gray-900">
-                            Popular near you
-                        </h2>
-
-                        <button
-                            onClick={() => onSelectCategory("Featured")}
-                            className="text-[#a8418b] text-sm font-semibold"
-                        >
-                            See all
-                        </button>
-                    </div>
-
-                    {/* Horizontal categories */}
-                    <div
-                        ref={sliderRef}
-                        className="
-              flex
-              gap-4
-              overflow-x-auto
-              scrollbar-hide
-              scroll-smooth
-              pb-2
+          <h2
+            className="
+              text-lg
+              sm:text-xl
+              md:text-2xl
+              lg:text-3xl
+              font-bold
+              text-gray-900
             "
-                    >
-                        {categories.map((category) => (
-                            <button
-                                key={category.name}
-                                onClick={() => onSelectCategory(category.name)}
-                                className="
-                  flex-shrink-0
-                  w-[68px]
-                  text-center
-                "
-                            >
+          >
+            Explore Our Collections
+          </h2>
 
-                                {/* Circle */}
-                                <div
-                                    className={`
-                    w-16
-                    h-16
+        
+
+        </div>
+
+
+        {/* ================= SLIDER ================= */}
+
+        <div className="relative">
+
+          {/* LEFT ARROW */}
+
+          <button
+            type="button"
+            onClick={scrollLeft}
+            className="
+              hidden
+              sm:flex
+              absolute
+              left-0
+              top-1/2
+              -translate-y-1/2
+              -translate-x-1/2
+              z-20
+
+              w-10
+              h-10
+
+              lg:w-12
+              lg:h-12
+
+              xl:w-14
+              xl:h-14
+
+              rounded-full
+              bg-white
+              shadow-lg
+              border
+              border-gray-200
+
+              items-center
+              justify-center
+
+              text-gray-700
+
+              hover:bg-[#a8418b]
+              hover:text-white
+              hover:border-[#a8418b]
+
+              transition-all
+              duration-300
+            "
+            aria-label="Previous categories"
+          >
+            <ChevronLeft
+              className="
+                w-5
+                h-5
+                lg:w-6
+                lg:h-6
+                xl:w-7
+                xl:h-7
+              "
+            />
+          </button>
+
+
+          {/* ================= CATEGORY LIST ================= */}
+
+          <div
+            ref={sliderRef}
+            className="
+              flex
+              items-start
+
+              gap-5
+              sm:gap-7
+              md:gap-10
+              lg:gap-14
+              xl:gap-16
+
+              overflow-x-auto
+              scroll-smooth
+              scrollbar-hide
+
+              pb-4
+
+              px-1
+              sm:px-3
+              lg:px-6
+            "
+          >
+
+            {categories.map((category) => (
+
+              <button
+                key={category.name}
+                type="button"
+                onClick={() =>
+                  onSelectCategory(category.name)
+                }
+                className="
+                  flex-shrink-0
+                  text-center
+                  group
+
+                  w-[68px]
+                  sm:w-[80px]
+                  md:w-[105px]
+                  lg:w-[135px]
+                  xl:w-[155px]
+                "
+              >
+
+                {/* ================= IMAGE CIRCLE ================= */}
+
+                <div
+                  className={`
                     mx-auto
                     rounded-full
                     overflow-hidden
                     bg-gray-100
-                    border
+                    border-3
+                    border-gray-700
                     flex
                     items-center
                     justify-center
-                    transition
-                    ${activeCategory === category.name
-                                            ? "border-[#a8418b] ring-2 ring-[#e79ed3]"
-                                            : "border-gray-200"
-                                        }
+
+                    transition-all
+                    duration-300
+
+                    /* MOBILE */
+                    w-16
+                    h-16
+
+                    /* SMALL */
+                    sm:w-[76px]
+                    sm:h-[76px]
+
+                    /* TABLET */
+                    md:w-[100px]
+                    md:h-[100px]
+
+                    /* DESKTOP */
+                    lg:w-[150px]
+                    lg:h-[150px]
+
+                    /* LARGE DESKTOP */
+                    xl:w-[160px]
+                    xl:h-[160px]
+
+                    ${
+                      activeCategory === category.name
+                        ? "border-[#a8418b] ring-2 ring-[#e79ed3] scale-105"
+                        : "border-gray-200 group-hover:border-[#a8418b] group-hover:scale-105"
+                    }
                   `}
-                                >
-                                    <img
-                                        src={category.image}
-                                        alt={category.name}
-                                        className="
+                >
+
+                  <img
+                    src={category.image}
+                    alt={category.name}
+                    className="
                       w-full
                       h-full
                       object-cover
+                      transition-transform
+                      duration-500
+                      group-hover:scale-110
                     "
-                                    />
-                                </div>
-
-                                {/* Name */}
-                                <p className="
-                  mt-1.5
-                  text-[10px]
-                  leading-tight
-                  text-gray-700
-                  line-clamp-2
-                ">
-                                    {category.name}
-                                </p>
-
-                            </button>
-                        ))}
-                    </div>
+                  />
 
                 </div>
 
 
-                {/* ================= DESKTOP ================= */}
-                <div className="hidden lg:block">
+                {/* ================= CATEGORY NAME ================= */}
 
-                    <div className="relative">
+                <p
+                  className="
+                    mt-2
 
-                        {/* Left */}
-                        <button
-                            onClick={scrollLeft}
-                            className="
-                absolute
-                -left-6
-                top-1/2
-                -translate-y-1/2
-                z-10
-                w-12
-                h-12
-                rounded-full
-                bg-gray-200
-                hover:bg-[#a8418b]
-                hover:text-white
-                transition
-                flex
-                items-center
-                justify-center
-                shadow
-              "
-                        >
-                            <ChevronLeft />
-                        </button>
+                    text-[10px]
+                    sm:text-xs
+                    md:text-sm
+                    lg:text-base
+                    xl:text-lg
 
+                    font-medium
+                    text-gray-700
 
-                        {/* Categories */}
-                        <div
-                            ref={sliderRef}
-                            className="
-                flex
-                gap-5
-                overflow-x-auto
-                scroll-smooth
-                scrollbar-hide
-              "
-                        >
-                            {categories.map((category) => (
-                                <button
-                                    key={category.name}
-                                    onClick={() => onSelectCategory(category.name)}
-                                    className="
-                    group
-                    min-w-[220px]
-                    h-65
-                    flex-shrink-0
+                    group-hover:text-[#a8418b]
+
+                    transition
+
+                    leading-tight
+                    line-clamp-2
                   "
-                                >
+                >
+                  {category.name}
+                </p>
 
-                                    <div
-                                        className={`
-                      rounded-xl
-                      bg-gray-600
-                      border-2
-                      border-[#e79ed3]/30
-                      h-56
-                      shadow
-                      hover:shadow-xl
-                      transition
-                      duration-300
-                      overflow-hidden
-                    `}
-                                    >
+              </button>
 
-                                        <div className="overflow-hidden">
-                                            <img
-                                                src={category.image}
-                                                alt={category.name}
-                                                className="
-                          w-full
-                          h-44
-                          object-contain
-                          group-hover:scale-110
-                          transition-transform
-                          duration-500
-                        "
-                                            />
-                                        </div>
+            ))}
 
-                                        <div className="bg-[#222222] py-3 text-center">
-                                            <h3 className="
-                        font-semibold
-                        text-white
-                        group-hover:text-[#e79ed3]
-                        transition
-                      ">
-                                                {category.name}
-                                            </h3>
-                                        </div>
-
-                                    </div>
-
-                                </button>
-                            ))}
-                        </div>
+          </div>
 
 
-                        {/* Right */}
-                        <button
-                            onClick={scrollRight}
-                            className="
-                absolute
-                -right-6
-                top-1/2
-                -translate-y-1/2
-                z-10
-                w-12
-                h-12
-                rounded-full
-                bg-gray-200
-                hover:bg-[#a8418b]
-                hover:text-white
-                transition
-                flex
-                items-center
-                justify-center
-                shadow
+          {/* RIGHT ARROW */}
+
+          <button
+            type="button"
+            onClick={scrollRight}
+            className="
+              hidden
+              sm:flex
+              absolute
+              right-0
+              top-1/2
+              -translate-y-1/2
+              translate-x-1/2
+              z-20
+
+              w-10
+              h-10
+
+              lg:w-12
+              lg:h-12
+
+              xl:w-14
+              xl:h-14
+
+              rounded-full
+              bg-white
+              shadow-lg
+              border
+              border-gray-200
+
+              items-center
+              justify-center
+
+              text-gray-700
+
+              hover:bg-[#a8418b]
+              hover:text-white
+              hover:border-[#a8418b]
+
+              transition-all
+              duration-300
+            "
+            aria-label="Next categories"
+          >
+            <ChevronRight
+              className="
+                w-5
+                h-5
+                lg:w-6
+                lg:h-6
+                xl:w-7
+                xl:h-7
               "
-                        >
-                            <ChevronRight />
-                        </button>
+            />
+          </button>
 
-                    </div>
+        </div>
 
-                </div>
-
-            </div>
-        </section>
-    );
+      </div>
+    </section>
+  );
 }
+

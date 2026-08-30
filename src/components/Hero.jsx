@@ -41,11 +41,8 @@ export default function Hero() {
 
             <HeroSlider />
 
-            {/* Promo Banner */}
-            <div className="mt-6">
-              <PromoBannerSlider />
-            </div>
-
+           
+              
           </div>
 
 
@@ -53,11 +50,6 @@ export default function Hero() {
           <div className="lg:col-span-2 min-w-0">
 
             <FeatureSidebar />
-
-            <div className="mt-4">
-              <HotProducts />
-            </div>
-
           </div>
 
         </div>

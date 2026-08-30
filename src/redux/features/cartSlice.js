@@ -10,6 +10,9 @@ const cartSlice = createSlice({
   initialState,
 
   reducers: {
+    // =====================================================
+    // ADD TO CART
+    // =====================================================
 
     addToCart: (state, action) => {
       const item = action.payload;
@@ -23,11 +26,14 @@ const cartSlice = createSlice({
       } else {
         state.cartItems.push({
           ...item,
-          quantity: 1,
+          quantity: item.quantity || 1,
         });
       }
     },
 
+    // =====================================================
+    // REMOVE FROM CART
+    // =====================================================
 
     removeFromCart: (state, action) => {
       state.cartItems = state.cartItems.filter(
@@ -35,6 +41,9 @@ const cartSlice = createSlice({
       );
     },
 
+    // =====================================================
+    // INCREASE QUANTITY
+    // =====================================================
 
     increaseQuantity: (state, action) => {
       const item = state.cartItems.find(
@@ -42,10 +51,13 @@ const cartSlice = createSlice({
       );
 
       if (item) {
-        item.quantity++;
+        item.quantity += 1;
       }
     },
 
+    // =====================================================
+    // DECREASE QUANTITY
+    // =====================================================
 
     decreaseQuantity: (state, action) => {
       const item = state.cartItems.find(
@@ -55,7 +67,7 @@ const cartSlice = createSlice({
       if (!item) return;
 
       if (item.quantity > 1) {
-        item.quantity--;
+        item.quantity -= 1;
       } else {
         state.cartItems = state.cartItems.filter(
           (product) => product._id !== action.payload
@@ -63,19 +75,25 @@ const cartSlice = createSlice({
       }
     },
 
+    // =====================================================
+    // CLEAR CART
+    // =====================================================
 
     clearCart: (state) => {
       state.cartItems = [];
     },
 
+    // =====================================================
+    // LOAD CART
+    // =====================================================
 
     setCart: (state, action) => {
-      state.cartItems = action.payload;
+      state.cartItems = Array.isArray(action.payload)
+        ? action.payload
+        : [];
     },
-
   },
 });
-
 
 export const {
   addToCart,
@@ -85,6 +103,5 @@ export const {
   clearCart,
   setCart,
 } = cartSlice.actions;
-
 
 export default cartSlice.reducer;

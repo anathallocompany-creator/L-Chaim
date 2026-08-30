@@ -69,7 +69,7 @@ export default function GallerySlider() {
 
   return (
     <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-[90%] mx-auto px-4">
 
         {/* Heading */}
 

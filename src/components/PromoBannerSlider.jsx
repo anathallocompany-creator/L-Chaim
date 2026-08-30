@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -9,7 +10,7 @@ const banners = [
     subtitle: "Enjoy up to 20% OFF on all Birthday Cakes",
     button: "Shop Birthday Cakes",
     image: "/cat10.png",
-    gradient: "from-gray-500 to-pink-300",
+    gradient: "from-[#7b285f] via-[#a8418b] to-[#e89acb]",
     link: "/category/birthday-cakes",
   },
   {
@@ -18,88 +19,326 @@ const banners = [
     subtitle: "Beautiful handcrafted cakes made for your special day",
     button: "Explore Collection",
     image: "/cat11.png",
-    gradient: "from-black to-gray-600",
+    gradient: "from-[#171717] via-[#363636] to-[#777777]",
     link: "/category/wedding-cakes",
   },
 ];
 
 export default function PromoBanner() {
   return (
-    <section className="max-w-7xl mx-auto px-4 py-10">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <section className="w-full py-10 sm:py-14 lg:py-16">
+      
+      {/* WIDER CONTAINER */}
+      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
 
-        {banners.map((banner) => (
-          <div
-            key={banner.id}
-            className="relative overflow-hidden rounded-3xl shadow-lg group max-h-[310px]"
-          >
-            {/* Background */}
+        {/* BANNER GRID */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-7">
+
+          {banners.map((banner) => (
             <div
-              className={`absolute inset-0 bg-gradient-to-r ${banner.gradient}`}
-            />
+              key={banner.id}
+              className="
+                group
+                relative
+                overflow-hidden
+                rounded-2xl
+                sm:rounded-3xl
 
-            {/* Overlay */}
-          
+                min-h-[360px]
+                sm:min-h-[380px]
+                lg:min-h-[380px]
+                xl:min-h-[300px]
 
-            <div className="relative z-10 flex h-full items-center justify-between px-8 py-10">
+                shadow-lg
+                hover:shadow-2xl
 
-              {/* Text */}
-              <div className="max-w-sm text-white">
+                transition-all
+                duration-500
+              "
+            >
 
-                <span className="inline-block bg-white text-black px-4 py-1 rounded-full text-xs font-semibold mb-4">
-                  SPECIAL OFFER
-                </span>
+              {/* BACKGROUND */}
+              <div
+                className={`
+                  absolute
+                  inset-0
+                  bg-gradient-to-br
+                  ${banner.gradient}
+                  transition-transform
+                  duration-700
+                  group-hover:scale-105
+                `}
+              />
 
-                <h2 className="text-3xl md:text-4xl font-bold leading-tight">
-                  {banner.title}
-                </h2>
+              {/* OVERLAY */}
+              <div
+                className="
+                  absolute
+                  inset-0
+                  bg-black/10
+                  group-hover:bg-black/5
+                  transition
+                  duration-500
+                "
+              />
 
-                <p className="mt-4 text-white/90 text-base">
-                  {banner.subtitle}
-                </p>
+              {/* IMAGE FADE */}
+              <div
+                className="
+                  absolute
+                  right-0
+                  bottom-0
+                  w-[65%]
+                  h-full
+                  bg-gradient-to-l
+                  from-transparent
+                  via-transparent
+                  to-black/10
+                  pointer-events-none
+                "
+              />
 
-                <Link
-                  href={banner.link}
+              {/* CONTENT */}
+              <div
+                className="
+                  relative
+                  z-10
+                  min-h-[360px]
+                  sm:min-h-[380px]
+                  lg:min-h-[380px]
+                  xl:min-h-[400px]
+
+                  flex
+                  items-center
+
+                  px-5
+                  sm:px-8
+                  lg:px-10
+                  xl:px-12
+
+                  py-8
+                "
+              >
+
+                {/* TEXT */}
+                <div
                   className="
-                    inline-flex 
-                    mt-6 
-                    bg-white 
-                    text-black 
-                    px-6 
-                    py-3 
-                    rounded-full 
-                    font-bold
-                    hover:bg-gray-100
-                    transition
+                    relative
+                    z-20
+
+                    w-[60%]
+                    sm:w-[58%]
+                    lg:w-[60%]
+                    xl:w-[58%]
+
+                    text-white
                   "
                 >
-                  {banner.button}
-                </Link>
+
+                  {/* BADGE */}
+                  <span
+                    className="
+                      inline-flex
+                      items-center
+                      bg-white
+                      text-[#922b6a]
+
+                      px-3
+                      sm:px-4
+
+                      py-1.5
+
+                      rounded-full
+
+                      text-[9px]
+                      sm:text-[10px]
+
+                      font-bold
+                      tracking-[1.5px]
+                      uppercase
+
+                      shadow-sm
+                    "
+                  >
+                    Special Offer
+                  </span>
+
+                  {/* TITLE */}
+                  <h2
+                    className="
+                      mt-4
+
+                      text-2xl
+                      sm:text-3xl
+                      lg:text-4xl
+                      xl:text-[42px]
+
+                      font-bold
+
+                      leading-[1.1]
+                      tracking-tight
+
+                      max-w-[420px]
+                    "
+                  >
+                    {banner.title}
+                  </h2>
+
+                  {/* SUBTITLE */}
+                  <p
+                    className="
+                      mt-3
+                      sm:mt-4
+
+                      text-xs
+                      sm:text-sm
+                      lg:text-base
+
+                      text-white/90
+
+                      leading-6
+
+                      max-w-[350px]
+                    "
+                  >
+                    {banner.subtitle}
+                  </p>
+
+                  {/* BUTTON */}
+                  <Link
+                    href={banner.link}
+                    className="
+                      inline-flex
+                      items-center
+                      justify-center
+
+                      mt-5
+                      sm:mt-6
+
+                      bg-white
+                      text-gray-900
+
+                      px-4
+                      sm:px-5
+                      lg:px-6
+
+                      py-2.5
+                      sm:py-3
+
+                      rounded-full
+
+                      text-xs
+                      sm:text-sm
+
+                      font-bold
+
+                      shadow-md
+
+                      hover:bg-[#922b6a]
+                      hover:text-white
+                      hover:scale-105
+
+                      transition-all
+                      duration-300
+                    "
+                  >
+                    {banner.button}
+                  </Link>
+
+                </div>
+
+                {/* PRODUCT IMAGE */}
+                <div
+                  className="
+                    absolute
+
+                    right-[-10px]
+                    sm:right-[-15px]
+                    lg:right-[-20px]
+
+                    bottom-0
+
+                    w-[48%]
+                    sm:w-[48%]
+                    lg:w-[48%]
+
+                    h-[88%]
+
+                    flex
+                    items-end
+                    justify-end
+
+                    pointer-events-none
+                  "
+                >
+                  <img
+                    src={banner.image}
+                    alt={banner.title}
+                    className="
+                      w-full
+                      h-full
+
+                      object-contain
+                      object-bottom
+
+                      drop-shadow-2xl
+
+                      transition-transform
+                      duration-700
+                      ease-out
+
+                      group-hover:scale-110
+                      group-hover:-translate-y-2
+                    "
+                  />
+                </div>
 
               </div>
 
-
-              {/* Image */}
-              <img
-                src={banner.image}
-                alt={banner.title}
+              {/* DECORATIVE CIRCLES */}
+              <div
                 className="
                   absolute
-                  right-[-20px]
-                  bottom-0
-                  h-[240px]
-                  object-contain
-                  transition-transform
-                  duration-500
-                  group-hover:scale-110
+                  -right-16
+                  -top-16
+
+                  w-40
+                  h-40
+
+                  rounded-full
+
+                  border
+                  border-white/10
+
+                  pointer-events-none
+                "
+              />
+
+              <div
+                className="
+                  absolute
+                  -right-24
+                  -top-24
+
+                  w-52
+                  h-52
+
+                  rounded-full
+
+                  border
+                  border-white/5
+
+                  pointer-events-none
                 "
               />
 
             </div>
-          </div>
-        ))}
+          ))}
+
+        </div>
 
       </div>
     </section>
   );
 }
+

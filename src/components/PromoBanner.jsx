@@ -6,7 +6,8 @@ export default function PromoBanner() {
     <section
       className="
         w-full
-        max-w-7xl
+        md:max-w-[90%]
+        max-w-full
         mx-auto
         px-3
         sm:px-4
@@ -26,18 +27,18 @@ export default function PromoBanner() {
           sm:rounded-2xl
           md:rounded-3xl
           bg-[#1b0d0d]
-          h-[220px]
+          h-[250px]
           sm:h-[280px]
           md:h-[360px]
           lg:h-[440px]
-          xl:h-[520px]
+          xl:h-[620px]
           flex
           items-center
         "
       >
         {/* Background Image */}
         <img
-          src="/banner-cake.png"
+          src="/backy.png"
           alt="Chocolate Cake"
           className="
             absolute
@@ -45,6 +46,7 @@ export default function PromoBanner() {
             w-full
             h-full
             object-cover
+            bg-center
             object-center
           "
         />

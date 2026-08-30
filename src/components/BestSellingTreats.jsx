@@ -61,7 +61,7 @@ export default function BestSellingTreats() {
     <section
       className="
         w-full
-        max-w-7xl
+        max-w-[90%]
         mx-auto
         px-3
         sm:px-4

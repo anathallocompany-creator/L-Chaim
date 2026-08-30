@@ -31,6 +31,13 @@ const products = [
     oldPrice: "₦5,000",
     price: "₦4,000",
   },
+  {
+    id: 5,
+    name: "Croissant",
+    image: "/croissant.webp",
+    oldPrice: "₦5,000",
+    price: "₦4,000",
+  },
 ];
 
 export default function HotProducts() {
@@ -41,13 +48,14 @@ export default function HotProducts() {
         Hot Products
       </h2>
 
-      <div className="grid grid-cols-2 lg:grid-cols-1 gap-2 lg:space-y-3 lg:gap-0">
+      <div className="flex gap-2 lg:space-y-3 lg:gap-8">
 
         {products.map((product) => (
           <div
             key={product.id}
             className="
               flex
+             
               items-center
               gap-2
               lg:gap-3
@@ -55,7 +63,7 @@ export default function HotProducts() {
               border-gray-700
               rounded-md
               p-1.5
-              lg:p-2
+              lg:p-12
               hover:border-[#a8418b]
               transition-all
               duration-300
@@ -68,12 +76,8 @@ export default function HotProducts() {
             <div
               className="
                 relative
-                w-10
-                h-10
-                sm:w-12
-                sm:h-12
-                lg:w-14
-                lg:h-14
+               w-32
+               h-32
                 rounded
                 overflow-hidden
                 flex-shrink-0
