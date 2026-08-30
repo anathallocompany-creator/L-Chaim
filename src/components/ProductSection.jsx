@@ -38,7 +38,7 @@ export default function ProductSection() {
     : [];
 
   return (
-    <section className="w-[90%] mx-auto py-6 sm:py-8 lg:py-10 px-3 sm:px-4">
+    <section className="w-full px-4 py-6 sm:py-8 lg:py-10">
 
       {/* Categories */}
       <CategoryShowcase
@@ -46,8 +46,9 @@ export default function ProductSection() {
         onSelectCategory={setActiveCategory}
       />
 
-      {/* Section Header */}
-      <div className="flex items-center justify-between mt-6 sm:mt-8 lg:mt-10 mb-4 sm:mb-6">
+     <div className=" mx-auto  px-3 sm:px-4">
+       {/* Section Header */}
+      <div className="flex  items-center justify-between mb-4 sm:mb-6">
 
         <div>
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900">
@@ -114,6 +115,7 @@ export default function ProductSection() {
           See All {activeCategory}
         </Link>
       </div>
+     </div>
 
     </section>
   );
